@@ -1,0 +1,76 @@
+﻿<Page
+    x:Class="App1.BlankPage1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <CommandBar x:Name="bottomCommandBar" x:FieldModifier="Protected" 
+                  IsOpen="true" ClosedDisplayMode="Compact" 
+                    IsSticky="False">
+
+            <AppBarButton x:Name="saveButton" Label="Save" Icon="Save" 
+                          Click="SaveButton_Click"
+                         />
+
+            <AppBarToggleButton Label="Autosave" 
+>
+
+                <AppBarToggleButton.Icon>
+
+                    <FontIcon Glyph="&#xE771;" />
+
+                </AppBarToggleButton.Icon>
+
+            </AppBarToggleButton>
+            <AppBarButton x:Name="deleteButton" Label="Delete" Icon="Delete" 
+                          Click="deleteButton_ClickAsync"
+                         />
+
+
+            <CommandBar.SecondaryCommands>
+
+                <AppBarButton Label="Help" Icon="Help"/>
+
+            </CommandBar.SecondaryCommands>
+
+        </CommandBar>
+
+        <StackPanel Grid.Row="1" Margin="50" >
+            <TextBlock FontSize="42" Text="Editformular"></TextBlock>
+        <TextBlock  TextWrapping="Wrap" Text="E-Mail: "/>
+        <TextBox x:Name="txtEmail" TextWrapping="Wrap" 
+                 PlaceholderText="Email" />
+        <TextBlock  TextWrapping="Wrap" Text="First Name: " />
+        <TextBox x:Name="txtFirstName" TextWrapping="Wrap" />
+        <TextBlock  TextWrapping="Wrap" Text="Last Name: "/>
+        <TextBox x:Name="txtLastName" TextWrapping="Wrap" />
+            <TextBlock  TextWrapping="Wrap" Text="Title: " >
+                           <FlyoutBase.AttachedFlyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem Text="Clear All" 
+                                        Click="MenuFlyoutItem_Click" />
+                    </MenuFlyout>
+                </FlyoutBase.AttachedFlyout>
+
+            </TextBlock>
+            <StackPanel Orientation="Horizontal">
+     
+                <RadioButton x:Name="rdAnredeA" Content="Herr" />
+            <RadioButton x:Name="rdAnredeB" Content="Frau" />
+            <RadioButton x:Name="rdAndredC" Content="Firma" />
+        </StackPanel>
+        <TextBlock  TextWrapping="Wrap" Text="Company: "/>
+        <TextBox x:Name="txtCompany" TextWrapping="Wrap" />
+        <TextBlock  TextWrapping="Wrap" Text="Phone Number: " />
+            <TextBox x:Name="txtPhoneNumber" TextWrapping="Wrap" >
+                <ToolTipService.ToolTip>
+                    <Image Source="Assets/StoreLogo.png"/>
+                </ToolTipService.ToolTip>
+            </TextBox>
+        </StackPanel>
+    </Grid>
+</Page>
